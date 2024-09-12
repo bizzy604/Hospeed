@@ -14,7 +14,7 @@ hospital_traffic_data = [
 
 @main.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @main.route('/hospital_traffic')
 def hospital_traffic():
