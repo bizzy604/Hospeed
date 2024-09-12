@@ -1,0 +1,18 @@
+{% extends "home.html" %}
+
+{% block content %}
+<section class="search-results">
+    <div class="container">
+        <h2>Search Results for "{{ query }}"</h2>
+        {% if results %}
+            <ul>
+                {% for hospital in results %}
+                    <li>{{ hospital.name }} - Traffic: {{ hospital.traffic }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hospitals found matching your search.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
