@@ -91,3 +91,33 @@ document.getElementById('find-hospitals').addEventListener('click', () => {
         alert('Geolocation is not supported by this browser.');
     }
 });
+
+function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 37.7749, lng: -122.4194 },
+      zoom: 12
+    });
+  
+    // Add event listener to find hospitals button
+    document.getElementById('find-hospitals-btn').addEventListener('click', () => {
+      const latitude = 37.7749; // Replace with user's current location
+      const longitude = -122.4194; // Replace with user's current location
+  
+      fetch('/find_hospitals', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ latitude, longitude })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const hospitals = data.hospitals;
+        hospitals.forEach(hospital => {
+          const marker = new google.maps.Marker({
+            position: { lat: hospital.latitude, lng: hospital.longitude },
+            map: map,
+            title: hospital.name
+          });
+        });
+      });
+    });
+  }

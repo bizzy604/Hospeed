@@ -28,8 +28,8 @@ def find_hospitals():
 
     # Simulate finding hospitals based on location (static data for now)
     hospitals = [
-        {"name": "Nearby Hospital 1", "address": "101 Nearby St", "rating": 4.2, "user_ratings_total": 120},
-        {"name": "Nearby Hospital 2", "address": "202 Nearby St", "rating": 4.5, "user_ratings_total": 90},
+        {"name": "Nearby Hospital A", "address": "101 Nearby St", "rating": 4.2, "user_ratings_total": 120, "latitude": 37.7859, "longitude": -122.4364},
+        {"name": "Nearby Hospital B", "address": "202 Nearby St", "rating": 4.5, "user_ratings_total": 90, "latitude": 37.7963, "longitude": -122.4092},
     ]
 
     return jsonify({"hospitals": hospitals})
