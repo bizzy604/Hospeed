@@ -6,13 +6,13 @@ Hospeed is a web application that provides real-time information on hospital tra
 
 Hospeed aims to streamline the decision-making process for individuals seeking hospital care by providing them with up-to-date traffic information. This way, users can avoid long wait times and choose the hospital that best suits their needs. The project utilizes Flask for the backend, along with a simple frontend interface.
 
-- **Deployed Site:** [Hospeed Live](#) *(Replace # with the actual URL)*
-- **Final Project Blog Article:** [Hospeed - Redefining Hospital Visits](#) *(Replace # with the blog URL)*
+- **Deployed Site:** [Hospeed Live](https://bizzy604.github.io/) 
+- **Final Project Blog Article:** [Hospeed - Redefining Hospital Visits](https://bizzy604.github.io/) 
 - **Author LinkedIn:** [Amoni Kevin](www.linkedin.com/in/amoni-kevin) 
 
 ## Screenshot
 
-![Hospeed Screenshot](path/to/your/screenshot.png) *(Ensure to replace this path with the actual screenshot path)*
+[Hospeed Screenshot](app/static/images/screenshot.jpg) 
 
 ## Installation
 
@@ -22,23 +22,26 @@ To get a local copy up and running, follow these steps:
    ```bash
    git clone https://github.com/bizzy604/Hospeed.git
 2. **Navigate into the project directory:**
-cd Hospeed
+    ```bash
+    cd Hospeed
 
 3. **Create and activate a virtual environment:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
 
-python3 -m venv venv
-source venv/bin/activate
-
-On Windows, activate the virtual environment using:
-
-venv\Scripts\activate
+*On Windows, activate the virtual environment using:*
+    ```bash
+    venv\Scripts\activate
 
 4. **Install the required packages:**
+    ```bash
+    pip install -r requirements.txt
 
-pip install -r requirements.txt
 5. **Run the Flask application:**
+    ```bash
+    python run.py 
 
-flask run
 6. **Access the application: Open your browser and navigate to http://127.0.0.1:5000.**
 
 ### Notes:
