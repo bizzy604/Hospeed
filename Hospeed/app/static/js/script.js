@@ -1,143 +1,156 @@
 #!/usr/bin/node
 
 // Smooth scrolling to sections
-// This script enables smooth scrolling when navigation links are clicked.
 document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        // Get the target section's ID from the href attribute
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        // Scroll to the target section smoothly
-        window.scrollTo({
-            top: targetSection.offsetTop,
-            behavior: 'smooth'
-        });
+        scrollToSection(this.getAttribute('href').substring(1));
     });
 });
 
+// Helper function for smooth scrolling
+function scrollToSection(targetId) {
+    const targetSection = document.getElementById(targetId);
+    window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: 'smooth'
+    });
+}
+
 // Fetch simulated hospital traffic data
-// This fetches data from the server to display hospital traffic on the dashboard.
 fetch('/hospital_traffic')
     .then(response => response.json())
     .then(data => {
-        // Call the function to display the fetched traffic data
         displayHospitalTraffic(data.traffic_data);
     });
 
 // Function to display hospital traffic data
-// This function dynamically creates and adds elements to the DOM to show hospital traffic.
 function displayHospitalTraffic(data) {
     const hospitalList = document.getElementById('traffic-dashboard');
     hospitalList.innerHTML = ''; // Clear previous data
 
     data.forEach(hospital => {
-        const hospitalItem = document.createElement('div');
-        hospitalItem.classList.add('hospital-item');
-
-        // Determine the traffic class based on the number of patients
-        const trafficClass = getTrafficClass(hospital.traffic);
-
-        // Set the inner HTML of the hospital item
-        hospitalItem.innerHTML = `
-            <h3>${hospital.name}</h3>
-            <p>${hospital.address}</p>
-            <p class="traffic-level ${trafficClass}">Traffic: ${hospital.traffic} patients</p>
-        `;
-
-        // Append the hospital item to the dashboard
+        const hospitalItem = createHospitalItem(hospital);
         hospitalList.appendChild(hospitalItem);
     });
 }
 
+// Helper function to create a hospital item element
+function createHospitalItem(hospital) {
+    const hospitalItem = document.createElement('div');
+    hospitalItem.classList.add('hospital-item');
+
+    const trafficClass = getTrafficClass(hospital.traffic);
+
+    hospitalItem.innerHTML = `
+        <h3>${hospital.name}</h3>
+        <p>${hospital.address}</p>
+        <p class="traffic-level ${trafficClass}">Traffic: ${hospital.traffic} patients</p>
+    `;
+
+    return hospitalItem;
+}
+
 // Function to determine the traffic class based on the number of patients
-// Returns a string representing the traffic level class ('high-traffic', 'medium-traffic', 'low-traffic').
 function getTrafficClass(traffic) {
     if (traffic >= 30) {
-        return 'high-traffic'; // Red
+        return 'high-traffic';
     } else if (traffic >= 10) {
-        return 'medium-traffic'; // Blue
+        return 'medium-traffic';
     } else {
-        return 'low-traffic'; // Green
+        return 'low-traffic';
     }
 }
 
 // Geolocation and fetching nearby hospitals
-// This script fetches the user's current location and retrieves nearby hospitals.
-document.getElementById('find-hospitals').addEventListener('click', () => {
+document.getElementById('find-hospitals').addEventListener('click', fetchNearbyHospitals);
+
+function fetchNearbyHospitals() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-
-            // Send the user's location to the server to find nearby hospitals
-            fetch('/find_hospitals', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ latitude, longitude }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                const locationResult = document.getElementById('location-result');
-                locationResult.innerHTML = ''; // Clear previous results
-                if (data.hospitals && data.hospitals.length > 0) {
-                    // Display each hospital's information
-                    data.hospitals.forEach(hospital => {
-                        const hospitalInfo = `
-                            <div class="hospital-info">
-                                <h3>${hospital.name}</h3>
-                                <p>${hospital.address}</p>
-                                <p>Rating: ${hospital.rating} (${hospital.user_ratings_total} reviews)</p>
-                            </div>
-                        `;
-                        locationResult.innerHTML += hospitalInfo;
-                    });
-                } else {
-                    locationResult.innerHTML = '<p>No hospitals found nearby.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching hospitals:', error);
-            });
+            const { latitude, longitude } = position.coords;
+            sendLocationToServer(latitude, longitude);
         });
     } else {
         alert('Geolocation is not supported by this browser.');
     }
-});
+}
+
+// Send the user's location to the server to find nearby hospitals
+function sendLocationToServer(latitude, longitude) {
+    fetch('/find_hospitals', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ latitude, longitude }),
+    })
+        .then(response => response.json())
+        .then(data => displayNearbyHospitals(data.hospitals))
+        .catch(error => {
+            console.error('Error fetching hospitals:', error);
+        });
+}
+
+// Function to display nearby hospitals
+function displayNearbyHospitals(hospitals) {
+    const locationResult = document.getElementById('location-result');
+    locationResult.innerHTML = ''; // Clear previous results
+
+    if (hospitals && hospitals.length > 0) {
+        hospitals.forEach(hospital => {
+            locationResult.innerHTML += createHospitalInfo(hospital);
+        });
+    } else {
+        locationResult.innerHTML = '<p>No hospitals found nearby.</p>';
+    }
+}
+
+// Helper function to create hospital information HTML
+function createHospitalInfo(hospital) {
+    return `
+        <div class="hospital-info">
+            <h3>${hospital.name}</h3>
+            <p>${hospital.address}</p>
+            <p>Rating: ${hospital.rating} (${hospital.user_ratings_total} reviews)</p>
+        </div>
+    `;
+}
 
 // Initialize Google Map
-// This function initializes the Google Map and places markers for nearby hospitals.
 function initMap() {
     const map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 37.7749, lng: -122.4194 }, // Default center coordinates
-      zoom: 12
+        center: { lat: 37.7749, lng: -122.4194 },
+        zoom: 12
     });
-  
-    // Add event listener to find hospitals button
+
     document.getElementById('find-hospitals-btn').addEventListener('click', () => {
-      // Hardcoded location (should be replaced with user's current location)
-      const latitude = 37.7749; 
-      const longitude = -122.4194; 
-  
-      // Send request to the server to find hospitals near the location
-      fetch('/find_hospitals', {
+        const latitude = 37.7749; // Replace with dynamic location if needed
+        const longitude = -122.4194;
+        findHospitalsAndPlaceMarkers(map, latitude, longitude);
+    });
+}
+
+// Find hospitals and place markers on the map
+function findHospitalsAndPlaceMarkers(map, latitude, longitude) {
+    fetch('/find_hospitals', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ latitude, longitude })
-      })
-      .then(response => response.json())
-      .then(data => {
-        const hospitals = data.hospitals;
-        // Add a marker for each hospital on the map
-        hospitals.forEach(hospital => {
-          const marker = new google.maps.Marker({
-            position: { lat: hospital.latitude, lng: hospital.longitude },
-            map: map,
-            title: hospital.name
-          });
+    })
+        .then(response => response.json())
+        .then(data => {
+            data.hospitals.forEach(hospital => {
+                createMarker(map, hospital);
+            });
         });
-      });
+}
+
+// Helper function to create a marker on the map
+function createMarker(map, hospital) {
+    new google.maps.Marker({
+        position: { lat: hospital.latitude, lng: hospital.longitude },
+        map: map,
+        title: hospital.name
     });
 }
