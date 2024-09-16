@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospeed - Real-time Hospital Traffic</title>
+    <!-- Google Maps API for rendering hospital locations on the map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhTs2395_5uFYdDoVSaUKdLeypqnXZ80w&callback=initMap"></script>
+    <!-- Favicon for the website -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <!-- External CSS Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts for typography -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -30,6 +34,7 @@
         <div class="container">
             <h1>Your Real-time Hospital Traffic Assistant</h1>
             <p>Make informed decisions before visiting a hospital. Avoid long queues and get treated faster.</p>
+            <!-- Call to action button to check traffic -->
             <a href="#location-search" class="cta-button">Check Traffic Now</a>
         </div>
     </header>
@@ -39,14 +44,17 @@
         <div class="container">
             <h2>Why Choose Hospeed?</h2>
             <div class="feature-cards">
+                <!-- Feature 1 -->
                 <div class="card">
                     <h3>Real-time Updates</h3>
                     <p>Get up-to-the-minute information on hospital traffic directly from hospital APIs.</p>
                 </div>
+                <!-- Feature 2 -->
                 <div class="card">
                     <h3>Easy to Use</h3>
                     <p>No need to sign up. Just enter your location and get instant results.</p>
                 </div>
+                <!-- Feature 3 -->
                 <div class="card">
                     <h3>Save Time</h3>
                     <p>Avoid overcrowded hospitals and save valuable time for yourself and your loved ones.</p>
@@ -59,6 +67,7 @@
     <section class="dashboard" id="dashboard">
         <div class="container">
             <h2>Hospital Traffic Dashboard</h2>
+            <!-- Placeholder for the traffic dashboard -->
             <div id="traffic-dashboard" class="dashboard-grid"></div>
         </div>
     </section>
@@ -67,30 +76,34 @@
     <section class="location-search" id="location-search">
         <div class="container">
             <h2>Find Hospitals Near You</h2>
+            <!-- Button to initiate the search for nearby hospitals -->
             <button id="find-hospitals" class="cta-button">Find Nearby Hospitals</button>
+            <!-- Placeholder for displaying search results -->
             <div id="location-result"></div>
         </div>
     </section>
 
     <!-- Developer Story Section -->
-  <section class="developer">
-    <h2>Meet the Developer</h2>
-    <p>I’m Amoni Kevin, a passionate software developer, experienced in building solutions that matter. Hospeed is a portfolio project developed to demonstrate my skills in full-stack development.</p>
-    <a href="https://github.com/bizzy604/bizzy604.github.io" class="btn-secondary">View on GitHub</a>
-  </section>
+    <section class="developer">
+        <h2>Meet the Developer</h2>
+        <p>I’m Amoni Kevin, a passionate software developer, experienced in building solutions that matter. Hospeed is a portfolio project developed to demonstrate my skills in full-stack development.</p>
+        <!-- Link to GitHub repository for the project -->
+        <a href="https://github.com/bizzy604/bizzy604.github.io" class="btn-secondary">View on GitHub</a>
+    </section>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <div class="container">
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a></li>
+                <a href="#">Terms of Service</a>
                 <a href="#">Support</a>
             </div>
             <p>&copy; 2024 Hospeed. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- External JavaScript file -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

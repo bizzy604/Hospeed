@@ -1,10 +1,12 @@
 :root {
+    /* Define CSS variables for color schemes */
     --bg-color: #1f242d;
     --second-bg-color: #323946;
     --text-color: #fff;
     --main-color: #0ef;
 }
 
+/* General body styling */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -13,12 +15,14 @@ body {
     color: var(--text-color);
 }
 
+/* Container for centering content */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Navigation bar styling */
 nav {
     background-color: var(--second-bg-color);
     color: var(--text-color);
@@ -31,6 +35,7 @@ nav {
     color: var(--main-color);
 }
 
+/* Navigation links */
 .nav-links {
     list-style-type: none;
     margin: 0;
@@ -49,6 +54,7 @@ nav {
     font-weight: bold;
 }
 
+/* Hero section styling */
 .hero {
     background: url('/static/images/hero-bg.jpg') no-repeat center center/cover;
     color: var(--text-color);
@@ -67,6 +73,7 @@ nav {
     margin-bottom: 30px;
 }
 
+/* Call-to-action button */
 .cta-button {
     background-color: var(--main-color);
     color: var(--bg-color);
@@ -80,6 +87,7 @@ nav {
     background-color: #0cc;
 }
 
+/* Features section styling */
 .features {
     padding: 60px 20px;
     background-color: var(--second-bg-color);
@@ -92,6 +100,7 @@ nav {
     color: var(--main-color);
 }
 
+/* Feature cards */
 .feature-cards {
     display: flex;
     justify-content: space-around;
@@ -112,7 +121,7 @@ nav {
     margin-top: 0;
 }
 
-/* Style for the location-search section */
+/* Location search section */
 .location-search {
     display: flex;
     flex-direction: column;
@@ -125,7 +134,7 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: var(--text-color);
     margin: 3rem auto; /* Center horizontally with auto margin */
-    max-width: 600px;  /* Limit the width */
+    max-width: 600px; /* Limit the width */
 }
 
 .location-search h2 {
@@ -152,7 +161,8 @@ nav {
     margin-top: 1.5rem;
     font-size: 1.1rem;
 }
-/* Developer Section */
+
+/* Developer section */
 .developer {
     padding: 50px 20px;
     background-color: var(--second-bg-color);
@@ -164,6 +174,7 @@ nav {
     margin-bottom: 20px;
 }
 
+/* Secondary button styling */
 .btn-secondary {
     background-color: var(--bg-color);
     color: var(--main-color);
@@ -177,6 +188,7 @@ nav {
     color: var(--bg-color);
 }
 
+/* Footer styling */
 footer {
     background-color: var(--second-bg-color);
     color: var(--text-color);
@@ -199,6 +211,7 @@ footer {
     text-decoration: underline;
 }
 
+/* Hospital information card styling */
 .hospital-info {
     background-color: var(--second-bg-color);
     padding: 1rem;
@@ -217,6 +230,7 @@ footer {
     margin: 0.5rem 0;
 }
 
+/* Dashboard section styling */
 .dashboard {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -229,6 +243,7 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Dashboard grid layout */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -252,6 +267,7 @@ footer {
     font-size: 1rem;
 }
 
+/* Hospital item styling */
 .hospital-item {
     background-color: var(--second-bg-color);
     padding: 15px;
@@ -260,6 +276,7 @@ footer {
     color: var(--text-color);
 }
 
+/* Traffic level indicators */
 .traffic-level {
     font-weight: bold;
 }
