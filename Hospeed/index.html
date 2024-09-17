@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospeed - Find Nearby Hospitals Fast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        .fade-in.appear {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <header class="bg-blue-600 text-white fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                Hospeed
+            </div>
+            <div>
+                <a href="#features" class="mx-3 hover:text-blue-200">Features</a>
+                <a href="#how-it-works" class="mx-3 hover:text-blue-200">How It Works</a>
+                <a href="#testimonials" class="mx-3 hover:text-blue-200">Testimonials</a>
+                <a href="#faq" class="mx-3 hover:text-blue-200">FAQ</a>
+                <a href="#contact" class="mx-3 hover:text-blue-200">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <section class="hero bg-blue-500 text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl font-bold mb-4">Find Nearby Hospitals in Seconds</h1>
+                <p class="text-xl mb-8">Hospeed helps you locate the nearest hospitals and shows real-time traffic information, ensuring you get the care you need without delay.</p>
+                <a href="#" class="bg-white text-blue-500 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">Get Started</a>
+            </div>
+        </section>
+
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Why Choose Hospeed?</h2>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full fade-in">
+                            <i class="fas fa-map-marker-alt text-4xl text-blue-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Accurate Location</h3>
+                            <p>Our advanced geolocation technology ensures pinpoint accuracy in finding hospitals near you.</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full fade-in">
+                            <i class="fas fa-traffic-light text-4xl text-blue-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Real-time Traffic</h3>
+                            <p>Get up-to-date traffic information to choose the fastest route to your selected hospital.</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full fade-in">
+                            <i class="fas fa-user-md text-4xl text-blue-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Hospital Information</h3>
+                            <p>Access crucial details about each hospital, including services offered and contact information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="bg-blue-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Hospeed in Numbers</h2>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-500">500,000+</span>
+                            <p class="text-gray-600">Users</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-500">10,000+</span>
+                            <p class="text-gray-600">Hospitals</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-500">98%</span>
+                            <p class="text-gray-600">User Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-500">2 min</span>
+                            <p class="text-gray-600">Avg. Search Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="bg-gray-200 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">How Hospeed Works</h2>
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                        <img src="/api/placeholder/600/400" alt="Hospeed app interface" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12">
+                        <ol class="list-decimal pl-6">
+                            <li class="mb-4">Open the Hospeed web app on your device</li>
+                            <li class="mb-4">Allow location access for accurate results</li>
+                            <li class="mb-4">View a list of nearby hospitals on the map</li>
+                            <li class="mb-4">Check real-time traffic information for each route</li>
+                            <li>Select a hospital and get directions</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full">
+                            <p class="mb-4">"Hospeed saved me precious time when I needed to rush my child to the ER. The traffic information was spot-on!"</p>
+                            <p class="font-semibold">- Sarah M., Parent</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full">
+                            <p class="mb-4">"As a first responder, I find Hospeed invaluable. It helps us make quick decisions about which hospital to choose in emergencies."</p>
+                            <p class="font-semibold">- John D., Paramedic</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 h-full">
+                            <p class="mb-4">"The app is user-friendly and provides accurate information. It's a must-have for everyone, especially those with medical conditions."</p>
+                            <p class="font-semibold">- Emily R., Chronic Patient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="bg-gray-200 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">Is Hospeed free to use?</h3>
+                        <p>Yes, Hospeed is completely free for all users.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">How accurate is the traffic information?</h3>
+                        <p>We update our traffic data in real-time using multiple reliable sources to ensure high accuracy.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">Can I use Hospeed without an internet connection?</h3>
+                        <p>Hospeed requires an internet connection to provide up-to-date information. However, we're working on an offline mode for basic functionality.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">Is my location data kept private?</h3>
+                        <p>Absolutely. We take your privacy seriously and do not store or share your location data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-8">Ready to Find the Nearest Hospital?</h2>
+                <a href="#" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">Try Hospeed Now</a>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-blue-500 text-white py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+                <div class="max-w-lg mx-auto">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-3 py-2 text-gray-700 rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-3 py-2 text-gray-700 rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-3 py-2 text-gray-700 rounded" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-white text-blue-500 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Hospeed. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="mx-2 hover:text-blue-300">Privacy Policy</a>
+                <a href="#" class="mx-2 hover:text-blue-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        // Initialize smooth scroll
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 800,
+            speedAsDuration: true
+        });
+
+        // Fade-in animation
+        function fadeInOnScroll() {
+            var elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function(element) {
+                var elementTop = element.getBoundingClientRect().top;
+                var elementBottom = element.getBoundingClientRect().bottom;
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.classList.add('appear');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>
